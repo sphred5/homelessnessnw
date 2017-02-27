@@ -13,19 +13,6 @@ h1, h2 {
     text-transform: uppercase;
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.story_card {
-    border: 1px solid red;
-    padding: 10px;
-}
-
 .sidebar {
     float: left;
     border: 1px solid red;
@@ -51,6 +38,14 @@ h1, h2 {
     background-color: #ad6a26;
 }
 
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .content {
     float: right;
     border: 1px solid red;
@@ -60,9 +55,9 @@ h1, h2 {
     color: white;
 }
 
-img {
-    float: left;
+.story_card {
     border: 1px solid red;
+    padding: 10px;
 }
 
 .story_card p {
@@ -77,4 +72,9 @@ img {
     height: 300px;
     width: 300px;
     margin: 15px;
+}
+
+img {
+    float: left;
+    border: 1px solid red;
 }
