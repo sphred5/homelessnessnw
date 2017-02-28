@@ -6,19 +6,66 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: gray;
     color: white;
-    background: linear-gradient(to right, rgba(0, 0, 0, .5) 0%, rgba(19, 19, 19, 0) 100%);
+    margin:0;
+    padding: 0;
+    font-size: 30px;
 }
 
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 130%;
+    width: 100%;
+    z-index: -3;
+}
+#bg:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 110%;
+    width: 100%;
+    display: block;
+    background: linear-gradient(to right, rgba(0, 0, 0, .7) 0%, rgba(19, 19, 19, 0) 100%);
+}
+
+#bg img {
+    height: 100%;
+}
+h1 {
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    font-size: 2.0em;
+    margin-bottom: 220px;
+}
 h1, h2 {
     text-transform: uppercase;
+}
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
 }
 
 .sidebar {
     float: left;
-    border: 1px solid red;
     width: 20%;
     padding: 5px;
-    background-color: rgba(0, 0, 0, .5);
+    height: 100vh;
+    position: fixed;
+}
+
+.sidebar ul {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    font-weight: 500;
 }
 
 .sidebar li {
@@ -28,10 +75,9 @@ h1, h2 {
 .sidebar li a {
     color: white;
     text-decoration: none;
-    text-transform: uppercase;
     display: block;
     padding: 10px;
-    font-size: 14px;
+    transition: background-color 0.1s;
 }
 
 .sidebar li a:hover {
@@ -39,7 +85,7 @@ h1, h2 {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -48,11 +94,26 @@ h1, h2 {
 
 .content {
     float: right;
-    border: 1px solid red;
     width: 80%;
     padding: 30px;
-    background-color: rgba(0, 0, 0, .5);
     color: white;
+}
+
+.fact_card {
+    background-color: rgba(0,0,0,0.7);
+    margin-bottom: 50px;
+    padding: 20px;
+    max-width: 700px;
+}
+.main .container {
+    flex-direction: column;
+}
+.main .fact_card:nth-child(even) {
+    align-self: flex-end;
+}
+
+.fact_card p {
+    font-size: 0.8em;
 }
 
 .story_card {
@@ -72,9 +133,4 @@ h1, h2 {
     height: 300px;
     width: 300px;
     margin: 15px;
-}
-
-img {
-    float: left;
-    border: 1px solid red;
 }
