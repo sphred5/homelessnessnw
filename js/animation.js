@@ -3,26 +3,28 @@ function animate(el, property, value, duration, delay, callback) {
     duration = duration || 300;
     delay = delay || 0;
     callback = callback || function() {};
+
     value = parseValue(String(value));
 
     var currentValue = parseValue(getComputedStyle(el,null).getPropertyValue(property));
 
-    var targetValue = value - currentValue;
+    var targetValue = value.number - currentValue.number;
     var changeFactor = targetValue / (60 * (duration / 1000));
     var start = new Date().getTime();
 
-    el.style[property] = parseValue(getComputedStyle(el,null).getPropertyValue(property));
+    el.style[property] = currentValue.number + currentValue.unit;
 
     function animator(timestamp) {
-
-        el.style[property] = parseValue(el.style[property]) + changeFactor;
 
         var progress = new Date().getTime() - start;
         
         if(progress < duration) {
+            
+            el.style[property] = Number(currentValue.number) + (progress/duration * Number(targetValue)) + value.unit;
+
             requestAnimationFrame(animator); 
         } else {
-            el.style[property] = Number(value);
+            el.style[property] = value.number + value.unit;
             callback();
         }
         
@@ -30,22 +32,30 @@ function animate(el, property, value, duration, delay, callback) {
 
     setTimeout(function() {
         // Initial Call
-    requestAnimationFrame(animator);
+        requestAnimationFrame(animator);   
     }, delay);
-    
-    
+        
 }
 
 
 function parseValue(value) {
-    var unit = value.slice(value.length - 1);
+    var hasUnit = 
+        (function() {
+            return isNaN(value.slice(value.length - 1));
+        })();
 
-    if(isNaN(unit)) {
-        return Number(value.slice(0, value.length - 2));
+    if(hasUnit) {
+        return {
+            number: Number(value.slice(0, value.length - 2)),
+            unit: value.slice(-2)
+        }
     }
 
     else {
-        return Number(value);
+        return {
+            number: Number(value),
+            unit: ''
+        }
     }
 }
 
