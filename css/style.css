@@ -114,6 +114,8 @@ p {
 .card {
     background-color: rgba(0,0,0,0.7);
     position: relative;
+    animation-name: enter;
+    animation-duration: 0.5s;
 }
 
 .fact.card, .story.card {
@@ -216,5 +218,16 @@ p {
 
     .content {
         width: 100%;
+    }
+}
+
+@keyframes enter {
+    from {
+        top: 100px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
     }
 }
