@@ -51,28 +51,28 @@ p {
     padding: 0;
 }
 
-.sidebar {
+#sidebar {
     float: left;
     width: 20%;
     padding: 5px;
-    height: 100vh;
+    height: 250%;
     position: fixed;
 }
 
-.sidebar ul {
+#sidebar ul {
     padding: 0;
     margin: 0;
     position: absolute;
-    top: 40%;
+    top: 15%;
     width: 100%;
     font-weight: 500;
 }
 
-.sidebar li {
+#sidebar li {
     list-style: none;
 }
 
-.sidebar li a {
+#sidebar li a {
     color: white;
     text-decoration: none;
     display: block;
@@ -80,7 +80,7 @@ p {
     transition: background-color 0.1s;
 }
 
-.sidebar li a:hover {
+#sidebar li a:hover, #sidebar li.current a {
     background-color: #ad6a26;
 }
 
@@ -98,39 +98,88 @@ p {
     padding: 30px;
     color: white;
 }
-
-.fact_card {
+.card {
     background-color: rgba(0,0,0,0.7);
+}
+
+.fact.card, .story.card {
     margin-bottom: 50px;
     padding: 20px;
     max-width: 700px;
 }
+
 .main .container {
     flex-direction: column;
 }
-.main .fact_card:nth-child(even) {
+.main .fact.card:nth-child(even) {
     align-self: flex-end;
 }
 
-.fact_card p {
+.card p {
     font-size: 0.8em;
 }
 
-.story_card {
-    border: 1px solid red;
-    padding: 10px;
+.card.story {
+    max-width: 100%;
 }
 
-.story_card p {
-    float: right;
-    width: 250px;
-    padding: 5px;
-    border: 1px solid red;
+.stories h2 {
+    font-size: 1.0em;
 }
 
-.org_card {
-    background-color: black;
+.story img {
+    float: left;
+    vertical-align: bottom;
+    margin: 8px 10px 5px 5px;
+}
+
+.get_involved h2 {
+    font-size: 0.9em;
+    text-transform: none;
+    text-align: center;
+}
+
+.org.card {
     height: 300px;
     width: 300px;
     margin: 15px;
+    padding: 10px;
+}
+
+.org.card p {
+    font-size: 0.6em;
+    padding: 15px;
+}
+.org.card .logo {
+    margin-bottom: 10px;
+}
+.org.card .logo img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+}
+
+@media (max-width: 700px) {
+    h1 {
+        margin-top: 10px;
+        margin-bottom: 100px;
+    }
+    #sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+    }
+    #sidebar ul {
+        position: static;
+        display: flex;
+        justify-content: flex-end;
+    }
+    #sidebar li {
+        display: inline-block;
+    }
+
+    .content {
+        width: 100%;
+    }
 }
