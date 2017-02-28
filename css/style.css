@@ -178,6 +178,9 @@ p {
     #sidebar li {
         display: inline-block;
     }
+    .container {
+      justify-content: center;
+    }
 
     .content {
         width: 100%;
