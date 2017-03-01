@@ -41,7 +41,8 @@ h1 {
 h1, h2 {
     text-transform: uppercase;
 }
-h2 {
+
+h3 {
     margin: 0;
     padding: 0;
     font-size: 40px;
@@ -144,7 +145,7 @@ p {
     max-width: 100%;
 }
 
-.stories h2 {
+.stories h3 {
     font-size: 30px;
 }
 
@@ -154,7 +155,7 @@ p {
     margin: 8px 10px 5px 5px;
 }
 
-.get_involved h2 {
+.get_involved h3 {
     font-size: 25px;
     text-transform: none;
     text-align: center;
@@ -189,15 +190,15 @@ p {
         text-align: center;
     }
 
-    h2 {
+    h3 {
         font-size: 25px;
     }
-    
+
     .card p {
         font-size: 12px;
     }
 
-    .stories h2 {
+    .stories h3 {
         font-size: 18px;
     }
 
