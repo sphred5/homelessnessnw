@@ -162,6 +162,14 @@ h1 > a:hover, h2 > a:hover, h3 > a:hover {
 .card:nth-child(2) {animation-duration: 0.45s;}
 .card:nth-child(3) {animation-duration: 0.6s;}
 
+
+.fact.card p {
+    margin: 0;
+    padding: 0;
+    font-size: 35px;
+    font-weight: 600;
+}
+
 .fact.card, .story.card {
     margin-bottom: 70px;
     padding: 20px;
