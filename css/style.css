@@ -17,6 +17,7 @@ body {
     height: 130%;
     width: 100%;
     z-index: -3;
+    overflow: hidden;
 }
 #bg:after {
     content: '';
@@ -30,8 +31,13 @@ body {
 }
 
 #bg img {
-    height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    display: block;
+    position: relative;
+
 }
+
 h1 {
     text-shadow: 0 0 10px rgba(0,0,0,0.5);
     font-size: 70px;
@@ -43,6 +49,7 @@ h1, h2 {
 }
 h2 {
   font-size:45px;
+  color: white;
 }
 h3 {
     margin: 0;
@@ -51,10 +58,36 @@ h3 {
     font-weight: 600;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
 p {
     margin: 0;
     padding: 0;
+    transition: color 0.1s;
 }
+
+p a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.1s;
+}
+p a:hover {
+    text-decoration: underline;
+}
+
+h1 > a, h2 > a, h3 > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.1s;
+}
+
+h1 > a:hover, h2 > a:hover, h3 > a:hover {
+    color: #ccc;
+    text-decoration: none;
+}
+
 
 #sidebar {
     float: left;
@@ -118,22 +151,25 @@ p {
     background-color: rgba(0,0,0,0.7);
     position: relative;
     animation-name: enter;
-    animation-duration: 0.7s;
-    animation-timing-function: ease-in;
+    animation-duration: 0.65s;
+    animation-timing-function: cubic-bezier(.25,.97,.41,.95);
 }
 
 .card:nth-child(1) {animation-duration: 0.3s;}
-.card:nth-child(2) {animation-duration: 0.4s;}
-.card:nth-child(3) {animation-duration: 0.5s;}
+.card:nth-child(2) {animation-duration: 0.45s;}
+.card:nth-child(3) {animation-duration: 0.6s;}
 
 .fact.card, .story.card {
     margin-bottom: 70px;
     padding: 20px;
     max-width: 700px;
 }
-.story.card p a {
-  color:white;
-  display:block;
+
+.story .link {
+    margin-top: 10px;
+    text-transform: lowercase;
+    font-weight: lighter;
+    font-size: 0.9em;
 }
 
 .main .container {
@@ -172,15 +208,32 @@ p {
     width: 300px;
     margin: 15px;
     padding: 10px;
+    position: relative;
+    top: 0;
+    transition: top 0.2s;
+}
+
+.org.card:hover {
+    top: -10px;
+}
+
+.org.card:hover h3 {
+    color: #ccc;
 }
 
 .org.card p {
     font-size: 16px;
     padding: 15px;
 }
+
 .org.card .logo {
     margin-bottom: 10px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 .org.card .logo img {
     max-width: 100%;
     max-height: 100%;
@@ -189,6 +242,9 @@ p {
 }
 
 @media (max-width: 700px) {
+    #bg img {
+        left: -30%;
+    }
     h1 {
         margin-top: 10px;
         margin-bottom: 100px;
@@ -199,7 +255,7 @@ p {
     h3 {
         font-size: 25px;
     }
-
+    
     .card p {
         font-size: 12px;
     }
@@ -231,15 +287,21 @@ p {
     .content {
         width: 100%;
     }
+
+    .card.org {
+        height: auto;
+    }
 }
 
 @keyframes enter {
     from {
-        top: 100px;
+        top: 500px;
         opacity: 0;
+        color: transparent;
     }
     to {
         top: 0;
         opacity: 1;
+        color: white;
     }
 }
