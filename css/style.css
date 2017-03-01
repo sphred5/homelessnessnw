@@ -15,9 +15,11 @@ body {
     top: 0;
     left: 0;
     height: 130%;
-    width: 100%;
+    width: 100%;   
     z-index: -3;
     overflow: hidden;
+    animation-name: enter;
+    animation-duration: 0.3s;
 }
 #bg:after {
     content: '';
