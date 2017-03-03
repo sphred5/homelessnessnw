@@ -64,6 +64,10 @@ a {
     color: inherit;
     text-decoration: none;
 }
+a:hover {
+    text-decoration: underline;
+
+}
 p {
     margin: 0;
     padding: 0;
@@ -227,6 +231,7 @@ h1 > a:hover, h2 > a:hover, h3 > a:hover {
 
 .org.card:hover {
     top: -10px;
+    text-decoration: none;
 }
 
 .org.card:hover h3 {
