@@ -15,7 +15,7 @@ body {
     top: 0;
     left: 0;
     height: 130%;
-    width: 100%;   
+    width: 100%;
     z-index: -3;
     overflow: hidden;
     animation-name: enter;
@@ -273,7 +273,7 @@ h1 > a:hover, h2 > a:hover, h3 > a:hover {
     h3 {
         font-size: 25px;
     }
-    
+
     .card p {
         font-size: 12px;
     }
@@ -314,12 +314,12 @@ h1 > a:hover, h2 > a:hover, h3 > a:hover {
 
 @keyframes enter {
     from {
-        top: 500px;
+        transform: translateY(500px);
         opacity: 0;
         color: transparent;
     }
     to {
-        top: 0;
+        transform: translateY(0px);
         opacity: 1;
         color: white;
     }
